@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://d0hpvjngp1gys"]
+
+[ext_resource type="Script" uid="uid://dj8lubisykxen" path="res://player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bw8clkypjfj82" path="res://assets/sprites/tracks.png" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://bewogduquu8yl" path="res://turret.gd" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cj71eviiy6h3n" path="res://assets/sprites/circle_03.png" id="4_dqkch"]
+[ext_resource type="Resource" uid="uid://dp34rxm5i6k5b" path="res://scenes/weapons/StandardShell.tres" id="4_qlg0r"]
+[ext_resource type="Resource" uid="uid://847yudwdk2m1" path="res://scenes/weapons/MachineGun.tres" id="5_fjrip"]
+[ext_resource type="Script" uid="uid://cvo6csjrb6c2v" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="6_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://vxexct0e2plr" path="res://assets/sounds/freesound_community-engine-47745.mp3" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://b1ae0wipea1vf" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="7_jej6c"]
+[ext_resource type="Script" uid="uid://dmdwpwc6avwi1" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="8_3v2ag"]
+[ext_resource type="Script" uid="uid://pdash4cesk1i" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="9_oprun"]
+[ext_resource type="Script" uid="uid://d1sx46cmi83f3" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="10_a8ls1"]
+[ext_resource type="Script" uid="uid://dr15rvgfvpujm" path="res://scenes/PlayerUI.gd" id="11_f1ej7"]
+[ext_resource type="AudioStream" uid="uid://ctwcue6bon6b7" path="res://assets/sounds/melbeebelbee-gun-full-reload-384507.mp3" id="13_jej6c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
+bounce = 0.4
+
+[sub_resource type="Gradient" id="Gradient_h2yge"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1bvp3"]
+gradient = SubResource("Gradient_h2yge")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0xm2m"]
+particle_flag_disable_z = true
+use_rotation_3d = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.5
+color = Color(0.23399955, 0.23382667, 0.27672708, 1)
+color_ramp = SubResource("GradientTexture1D_1bvp3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(32, 32)
+
+[sub_resource type="Resource" id="Resource_3v2ag"]
+script = ExtResource("8_3v2ag")
+amplitude = Vector2(10, 10)
+metadata/_custom_type_script = "uid://dmdwpwc6avwi1"
+
+[sub_resource type="Resource" id="Resource_7v7s3"]
+script = ExtResource("10_a8ls1")
+PositionShake = Array[ExtResource("7_jej6c")]([SubResource("Resource_3v2ag")])
+metadata/_custom_type_script = "uid://d1sx46cmi83f3"
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+offsets = PackedFloat32Array(0, 0.66586536)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ig7tw"]
+gradient = SubResource("Gradient_ig7tw")
+width = 2048
+height = 2048
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1ej7"]
+bg_color = Color(0.9607843, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jej6c"]
+bg_color = Color(0, 0.70598817, 0.52313715, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_3v2ag"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_f1ej7")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jej6c")
+
+[node name="player" type="RigidBody2D" unique_id=346826470]
+physics_material_override = SubResource("PhysicsMaterial_ig7tw")
+gravity_scale = 0.0
+linear_damp = 5.0
+angular_damp = 10.0
+script = ExtResource("1_qhqgy")
+speed = 1000.0
+max_health = 100.0
+
+[node name="leftTrail" type="GPUParticles2D" parent="." unique_id=128702102]
+position = Vector2(0, -7)
+amount = 50
+texture = ExtResource("2_dqkch")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_0xm2m")
+
+[node name="rightTrail" type="GPUParticles2D" parent="." unique_id=446899564]
+position = Vector2(0, 9)
+amount = 50
+texture = ExtResource("2_dqkch")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_0xm2m")
+
+[node name="body" type="Polygon2D" parent="." unique_id=1510140783]
+rotation = 1.5707964
+color = Color(0, 0.17254902, 0, 1)
+polygon = PackedVector2Array(14, 10, 14, -10, 8.051552, -16, -7.906822, -16, -14, -10, -14, 9, -8.168434, 16, 9, 16)
+
+[node name="turret" type="Polygon2D" parent="." unique_id=1567568035]
+color = Color(0, 0.6901961, 0, 1)
+polygon = PackedVector2Array(-7, -6, -10, -3, -10, 5, -7, 8, 4, 8, 6, 4, 13, 4, 13, -3, 6, -3, 4, -6)
+script = ExtResource("3_qlg0r")
+primary = ExtResource("4_qlg0r")
+secondary = ExtResource("5_fjrip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331816101]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=752665819]
+position = Vector2(-2.3841858e-06, 7.1525574e-06)
+zoom = Vector2(1.2, 1.2)
+
+[node name="ShakerComponent2D" type="Node2D" parent="Camera2D" unique_id=1806479630]
+script = ExtResource("6_3v2ag")
+AutoPlay = true
+duration = 0.25
+shakerPreset = SubResource("Resource_7v7s3")
+metadata/_custom_type_script = "uid://cvo6csjrb6c2v"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=556886880]
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_ig7tw")
+texture_scale = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1245435519]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1955586768 node_paths=PackedStringArray("base")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_3v2ag")
+script = ExtResource("11_f1ej7")
+base = NodePath("../..")
+
+[node name="reloadBar" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=759848657]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 188.0
+offset_right = 20.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+step = 0.001
+value = 50.0
+fill_mode = 4
+texture_progress = ExtResource("4_dqkch")
+
+[node name="reloadText" type="RichTextLabel" parent="CanvasLayer/Control/reloadBar" unique_id=725464526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "Mash R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hpBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=562927445]
+layout_mode = 0
+anchor_right = 0.41927084
+anchor_bottom = 0.11111111
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="engine" type="AudioStreamPlayer2D" parent="." unique_id=609759511]
+stream = ExtResource("6_tuyoq")
+autoplay = true
+bus = &"sfx"
+parameters/looping = true
+
+[node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=32581235]
+stream = ExtResource("13_jej6c")
+
+[connection signal="reloaded" from="." to="reload" method="play"]
+[connection signal="fired" from="turret" to="Camera2D/ShakerComponent2D" method="play_shake"]

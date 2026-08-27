@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ejkw7kn5stjd"]
+
+[ext_resource type="Script" uid="uid://dxgu5b3p2c85s" path="res://scenes/weapons/Bullet.gd" id="1_ngwn0"]
+[ext_resource type="AudioStream" uid="uid://dv6avdwie7l8v" path="res://assets/sounds/freesound_community-072807_heavy-machine-gun-50-caliber-39765.mp3" id="2_7w3sl"]
+[ext_resource type="Script" uid="uid://d4gmvlfuapps6" path="res://scenes/traill.gd" id="3_u04rj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v7s3"]
+size = Vector2(8, 4)
+
+[sub_resource type="Curve" id="Curve_u04rj"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_u04rj"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 0, 1)
+
+[node name="MachineGunBullet" type="RayCast2D" unique_id=709213282]
+target_position = Vector2(10, 0)
+script = ExtResource("1_ngwn0")
+damage = 2.0
+speed = 1000.0
+fireSound = ExtResource("2_7w3sl")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=18608402]
+position = Vector2(2, 0)
+scale = Vector2(0.5, 0.5)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(4, -2, 4, 2, -4, 2, -4, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=528051737]
+visible = false
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_7v7s3")
+
+[node name="LineTrail2D" type="Line2D" parent="." unique_id=485411563]
+width = 2.0
+width_curve = SubResource("Curve_u04rj")
+default_color = Color(1, 1, 0, 1)
+gradient = SubResource("Gradient_u04rj")
+script = ExtResource("3_u04rj")
+max_points = 10
+metadata/_custom_type_script = "uid://d4gmvlfuapps6"

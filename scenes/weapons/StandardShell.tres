@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PrimaryWeapon" format=3 uid="uid://dp34rxm5i6k5b"]
+
+[ext_resource type="PackedScene" uid="uid://deata6vjis6yx" path="res://scenes/weapons/TankShell.tscn" id="1_cvmd1"]
+[ext_resource type="Script" uid="uid://bh04oswj74bfx" path="res://scenes/weapons/weapon_resource.gd" id="1_wn4gx"]
+
+[resource]
+script = ExtResource("1_wn4gx")
+name = "HE Shell"
+bullet = ExtResource("1_cvmd1")
+reload_time = 2.5
+metadata/_custom_type_script = "uid://bh04oswj74bfx"
