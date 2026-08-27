@@ -17,6 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !base.is_multiplayer_authority():
+		return
 	if primaryCooldownTimer < 0.0 and mag > 0 and Input.is_action_pressed("PrimaryFire"):
 		var p = primary.bullet.instantiate() as Bullet
 		p.my_owner = base

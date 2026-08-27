@@ -23,9 +23,14 @@ func _ready() -> void:
 func _enter_tree() -> void:
 	#setting auth
 	set_multiplayer_authority(name.to_int())
+	if !is_multiplayer_authority():
+		$CanvasLayer.hide()
+		$Camera2D.enabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !is_multiplayer_authority():
+		return
 	var dir = Input.get_vector("left", "right","up", "down")
 	if dir:
 		apply_central_force(dir*speed*delta*100.0)

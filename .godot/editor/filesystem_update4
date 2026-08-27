@@ -3,3 +3,6 @@ res://assets/sprites/circle.tres
 res://scenes/entity.gd
 res://main.tscn
 res://scripts/spawnPlayersOnJoin.gd
+res://player.gd
+res://turret.gd
+res://scenes/weapons/MachineGunBullet.tscn
