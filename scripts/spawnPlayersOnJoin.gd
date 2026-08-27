@@ -23,7 +23,7 @@ func on_host_created():
 func spawn_player(peer_id: int):
 	var new_player = PLAYER.instantiate()
 	new_player.name = str(peer_id)
-	add_child(new_player)
+	spawn.add_child(new_player)
 	initialize_player(new_player)
 
 func initialize_player(player: Entity):
