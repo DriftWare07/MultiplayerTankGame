@@ -20,35 +20,10 @@ func _process(delta: float) -> void:
 	if !base.is_multiplayer_authority():
 		return
 	if primaryCooldownTimer < 0.0 and mag > 0 and Input.is_action_pressed("PrimaryFire"):
-		var p = primary.bullet.instantiate() as Bullet
-		p.my_owner = base
-		get_tree().root.add_child(p)
-		p.global_position = global_position
-		p.global_rotation = global_rotation
-		p.move_local_x(10)
-		
-		var mf = muzzleFlash.instantiate() as Node2D
-		add_child(mf)
-		mf.move_local_x(10)
-		
-		
-		base.apply_impulse((Vector2.UP*-primary.knockback*100).rotated(deg_to_rad(rotation_degrees+base.rotation_degrees+90)))
-		
-		primaryCooldownTimer = primary.fire_delay
-		mag -= 1
-		if mag <= 0:
-			base.reload(primary.reload_time)
-		fired.emit()
-		screenFreeze()
+		fire_primary()
 	
 	if secondaryCooldownTimer < 0.0 and Input.is_action_pressed("SecondaryFire"):
-		var p = secondary.bullet.instantiate() as Bullet
-		p.my_owner = base
-		get_tree().root.add_child(p)
-		p.global_position = global_position
-		p.global_rotation = global_rotation
-		secondaryCooldownTimer = secondary.fire_delay
-		p.rotation_degrees += randf_range(-secondary.spread,secondary.spread)
+		fire_secondary()
 	
 	primaryCooldownTimer -= delta
 	secondaryCooldownTimer -= delta
@@ -62,3 +37,36 @@ func screenFreeze(time = 0.15):
 
 func reload():
 	mag = primary.max_mag
+
+@rpc("any_peer")
+func fire_primary():
+	var p = primary.bullet.instantiate() as Bullet
+	p.my_owner = base
+	get_tree().root.add_child(p)
+	p.global_position = global_position
+	p.global_rotation = global_rotation
+	p.move_local_x(10)
+	
+	var mf = muzzleFlash.instantiate() as Node2D
+	add_child(mf)
+	mf.move_local_x(10)
+	
+	
+	base.apply_impulse((Vector2.UP*-primary.knockback*100).rotated(deg_to_rad(rotation_degrees+base.rotation_degrees+90)))
+	
+	primaryCooldownTimer = primary.fire_delay
+	mag -= 1
+	if mag <= 0:
+		base.reload(primary.reload_time)
+	fired.emit()
+	screenFreeze()
+
+@rpc("any_peer")
+func fire_secondary():
+	var p = secondary.bullet.instantiate() as Bullet
+	p.my_owner = base
+	get_tree().root.add_child(p)
+	p.global_position = global_position
+	p.global_rotation = global_rotation
+	secondaryCooldownTimer = secondary.fire_delay
+	p.rotation_degrees += randf_range(-secondary.spread,secondary.spread)
