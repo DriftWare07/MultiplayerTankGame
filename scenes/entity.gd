@@ -3,7 +3,7 @@ class_name Entity
 
 @export var max_health = 5.0
 @export var sprite : AnimatedSprite2D
-var hp
+@export var hp = 5.0
 
 var dead = false
 

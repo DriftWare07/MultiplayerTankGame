@@ -1,3 +1,8 @@
+Button
+CanvasLayer
+MultiplayerSynchronizer
+Node2D
+MultiplayerSpawner
 AnimationPlayer
 AnimationTree
 Sprite2D
@@ -8,7 +13,3 @@ Fluid2DRenderer
 Fluid2D
 RayCast2D
 LineTrail2D
-GPUParticles2D
-Polygon2D
-ProgressBar
-TextureProgressBar

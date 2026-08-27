@@ -76,6 +76,29 @@ corner_radius_bottom_left = 8
 ProgressBar/styles/background = SubResource("StyleBoxFlat_f1ej7")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_jej6c")
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_f1ej7"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:angular_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:linear_velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:crewmates")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath(".:hp")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath("turret:rotation")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+
 [node name="player" type="RigidBody2D" unique_id=346826470]
 physics_material_override = SubResource("PhysicsMaterial_ig7tw")
 gravity_scale = 0.0
@@ -194,6 +217,9 @@ parameters/looping = true
 
 [node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=32581235]
 stream = ExtResource("13_jej6c")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1318035078]
+replication_config = SubResource("SceneReplicationConfig_f1ej7")
 
 [connection signal="reloaded" from="." to="reload" method="play"]
 [connection signal="fired" from="turret" to="Camera2D/ShakerComponent2D" method="play_shake"]

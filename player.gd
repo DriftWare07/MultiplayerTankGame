@@ -19,6 +19,10 @@ signal reloaded
 func _ready() -> void:
 	super()
 	reloaded.connect(turret.reload)
+	
+func _enter_tree() -> void:
+	#setting auth
+	set_multiplayer_authority(name.to_int())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

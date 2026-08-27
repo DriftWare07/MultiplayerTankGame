@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://bniubslbbuj73"
 [autoload]
 
 Shaker="*uid://dbunichry1wfi"
+Networking="*uid://dd545p3rqovt0"
 
 [editor_plugins]
 
@@ -79,3 +80,9 @@ textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 anti_aliasing/quality/use_debanding=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[steam]
+
+initialization/app_data/app_id=480
+initialization/processes/initialize_on_startup=true
+initialization/processes/embed_callbacks=true

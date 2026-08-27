@@ -1,10 +1,5 @@
-res://scenes/muzzle.tscn
-res://scenes/weapons/MachineGunBullet.tscn
-res://scenes/weapons/TankShell.tscn
-res://main.tscn
-res://scenes/weapons/Bullet.gd
-res://scenes/entity.gd
-res://player.gd
 res://scenes/player.tscn
-res://scenes/PlayerUI.gd
-res://scenes/explosion.tscn
+res://assets/sprites/circle.tres
+res://scenes/entity.gd
+res://main.tscn
+res://scripts/spawnPlayersOnJoin.gd
