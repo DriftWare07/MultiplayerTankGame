@@ -20,10 +20,10 @@ func _process(delta: float) -> void:
 	if !base.is_multiplayer_authority():
 		return
 	if primaryCooldownTimer < 0.0 and mag > 0 and Input.is_action_pressed("PrimaryFire"):
-		fire_primary()
+		fire_primary.rpc()
 	
 	if secondaryCooldownTimer < 0.0 and Input.is_action_pressed("SecondaryFire"):
-		fire_secondary()
+		fire_secondary.rpc()
 	
 	primaryCooldownTimer -= delta
 	secondaryCooldownTimer -= delta
