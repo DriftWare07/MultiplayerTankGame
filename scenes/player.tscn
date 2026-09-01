@@ -110,14 +110,14 @@ max_health = 100.0
 
 [node name="leftTrail" type="GPUParticles2D" parent="." unique_id=128702102]
 position = Vector2(0, -7)
-amount = 50
+amount = 1000
 texture = ExtResource("2_dqkch")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_0xm2m")
 
 [node name="rightTrail" type="GPUParticles2D" parent="." unique_id=446899564]
 position = Vector2(0, 9)
-amount = 50
+amount = 1000
 texture = ExtResource("2_dqkch")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_0xm2m")
@@ -135,6 +135,7 @@ primary = ExtResource("4_qlg0r")
 secondary = ExtResource("5_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331816101]
+visible = false
 shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=752665819]
@@ -157,6 +158,7 @@ texture_scale = 0.5
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1245435519]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1955586768 node_paths=PackedStringArray("base")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

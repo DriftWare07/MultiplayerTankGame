@@ -1,3 +1,6 @@
-res://scenes/weapons/MachineGunBullet.tscn
+res://scenes/player.tscn
 res://assets/sprites/circle.tres
-res://turret.gd
+res://feedback.md
+res://scenes/muzzle.tscn
+res://player.gd
+res://main.tscn

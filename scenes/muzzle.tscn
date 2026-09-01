@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhjes0yu6qv4f"]
 
-[ext_resource type="Texture2D" uid="uid://bgecped33wnxl" path="res://assets/sprites/circle.tres" id="1_ynnqp"]
+[ext_resource type="Texture2D" uid="uid://hu2q4hnxqj0x" path="res://assets/sprites/smoke_04.png" id="1_ynnqp"]
 
 [sub_resource type="Gradient" id="Gradient_wl87c"]
 offsets = PackedFloat32Array(0, 0.6297935, 0.74483776, 0.9867257)
@@ -35,8 +35,8 @@ initial_velocity_max = 500.0
 gravity = Vector3(0, 0, 0)
 damping_max = 500.00003
 damping_curve = SubResource("CurveTexture_ynnqp")
-scale_min = 0.099999994
-scale_max = 0.5
+scale_min = 0.01
+scale_max = 0.049999997
 scale_curve = SubResource("CurveTexture_rscp6")
 color_ramp = SubResource("GradientTexture1D_wl87c")
 

@@ -1,3 +1,4 @@
+Sprite2D
 Button
 CanvasLayer
 MultiplayerSynchronizer
@@ -5,11 +6,9 @@ Node2D
 MultiplayerSpawner
 AnimationPlayer
 AnimationTree
-Sprite2D
 AudioStreamPlayer2D
 CollisionShape2D
 Entity
 Fluid2DRenderer
 Fluid2D
 RayCast2D
-LineTrail2D

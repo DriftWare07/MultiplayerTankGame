@@ -161,6 +161,7 @@ tile_map_data = PackedByteArray("AAD+/wAAAAACAAYAAAD+/wEAAAACAAYAAAD+/wIAAAACAAY
 tile_set = SubResource("TileSet_7v7s3")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1733307191]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=480542587]

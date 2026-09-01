@@ -13,19 +13,24 @@ var immobileReload = false
 @onready var reloadText = $CanvasLayer/Control/reloadBar/reloadText
 @onready var turret = $turret
 
+var spawnPoint = Vector2.ZERO
+
 signal reloaded
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
 	super()
 	reloaded.connect(turret.reload)
+	spawnPoint = position
 	
 func _enter_tree() -> void:
 	#setting auth
 	set_multiplayer_authority(name.to_int())
 	if !is_multiplayer_authority():
+		#things that happen when this tank is NOT the local player
 		$CanvasLayer.hide()
 		$Camera2D.enabled = false
+		$PointLight2D.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -71,3 +76,7 @@ func reload(time = 1.0):
 	reloadBar.value = time
 	reloading = true
 	reloadtimer = time
+
+func die():
+	position = spawnPoint
+	hp = max_health
