@@ -19,11 +19,12 @@ jobs:
 
       - name: Debug template install
         run: |
-          echo "--- export_templates dir ---"
-          find ~/.local/share/godot/export_templates -maxdepth 2 2>/dev/null
-          echo "--- godot editor version ---"
-          ~/godot-binary/godot --version 2>/dev/null || echo "godot binary not found at expected path"
-            - uses: actions/checkout@v4
+          echo "--- searching whole home dir for godot template files ---"
+          find ~ -iname "*.tpz" 2>/dev/null
+          find ~ -type d -iname "*template*" 2>/dev/null
+          find ~ -iname "windows_release*" 2>/dev/null
+          echo "--- godot binary check ---"
+          find ~ -iname "godot" -type f 2>/dev/null
 
       - name: Build
         id: build
