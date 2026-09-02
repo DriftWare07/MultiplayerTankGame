@@ -16,7 +16,14 @@ jobs:
         preset: ["Windows Desktop", "Linux/X11", "macOS", "Android arm64"]
 
     steps:
-      - uses: actions/checkout@v4
+
+      - name: Debug template install
+        run: |
+          echo "--- export_templates dir ---"
+          find ~/.local/share/godot/export_templates -maxdepth 2 2>/dev/null
+          echo "--- godot editor version ---"
+          ~/godot-binary/godot --version 2>/dev/null || echo "godot binary not found at expected path"
+            - uses: actions/checkout@v4
 
       - name: Build
         id: build
