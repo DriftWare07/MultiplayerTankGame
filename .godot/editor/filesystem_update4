@@ -1,5 +1,6 @@
 res://scenes/player.tscn
 res://assets/sprites/circle.tres
+<<<<<<< HEAD
 res://turret.gd
 res://scenes/weapons/TankShell.tscn
 res://main.tscn
@@ -9,3 +10,5 @@ res://scenes/entity.gd
 res://scripts/spawnPlayersOnJoin.gd
 res://scenes/muzzle.tscn
 res://assets/shaders/crt.gdshader
+=======
+>>>>>>> 73e19a917ea2e7dc388d0a184bef9201d9638cc2
