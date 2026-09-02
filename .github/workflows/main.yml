@@ -1,6 +1,7 @@
 name: Build Game
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
@@ -9,11 +10,34 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: ["Windows Desktop", "Linux/X11", "macOS", "Android arm64"]
+
     steps:
       - uses: actions/checkout@v4
-      - name: Ensure export dir exists
-        run: mkdir -p build/windows
-      - name: Build (Windows)
-        uses: mlm-games/godot-build-action@v1.3.1
+
+      - name: Build
+        id: build
+        uses: mlm-games/godot-build-action@v1
         with:
-          EXPORT_PRESET_NAME: "Windows Desktop"
+          EXPORT_PRESET_NAME: ${{ matrix.preset }}
+          PROJECT_DIR: game                # if your project is in a subfolder
+          GODOT_VER: "4.7.1"                    # auto-detect latest stable 4.x
+          DEBUG_MODE: "false"              # or "true"
+          GODOT_PREVIEW_BUILDS: "false"    # set "true" to use preview builds
+          EXPORT_DIR: builds
+          INSTALL_BLENDER: "false"         # or "true" if your project has .blend files
+          BLENDER_VERSION: "4.4.3"
+          IMPORT_TIMEOUT: "60"
+          VERBOSE_IMPORT: "true"
+          BUTLER_UPLOAD: "false"           # set "true" to upload to itch
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          ITCH_USER_SLASH_GAME: yourname/yourgame
+
+      - name: Upload builds
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.preset }}-build
+          path: ${{ steps.build.outputs.build }}
