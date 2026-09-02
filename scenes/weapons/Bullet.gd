@@ -25,6 +25,8 @@ func hit(body):
 	if body != my_owner:
 		
 		if body is Entity:
+			if body.team == my_owner.team:
+				return
 			body.damage(damage)
 			queue_free()
 		

@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dj8lubisykxen" path="res://player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://bw8clkypjfj82" path="res://assets/sprites/tracks.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://br8dghj7p25fl" path="res://assets/sprites/Tank_hull_rough_sketch_.png" id="3_a8ls1"]
 [ext_resource type="Script" uid="uid://bewogduquu8yl" path="res://turret.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cj71eviiy6h3n" path="res://assets/sprites/circle_03.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://k8mnakkvym7t" path="res://assets/sprites/Smoke_particle_1.png" id="4_qfm1y"]
 [ext_resource type="Resource" uid="uid://dp34rxm5i6k5b" path="res://scenes/weapons/StandardShell.tres" id="4_qlg0r"]
 [ext_resource type="Resource" uid="uid://847yudwdk2m1" path="res://scenes/weapons/MachineGun.tres" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cvo6csjrb6c2v" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="6_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://eekjcm3b3nrm" path="res://assets/sprites/Tank_turret_rough_sketch_.png" id="6_oprun"]
 [ext_resource type="AudioStream" uid="uid://vxexct0e2plr" path="res://assets/sounds/freesound_community-engine-47745.mp3" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://b1ae0wipea1vf" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="7_jej6c"]
 [ext_resource type="Script" uid="uid://dmdwpwc6avwi1" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="8_3v2ag"]
@@ -30,8 +33,34 @@ use_rotation_3d = true
 gravity = Vector3(0, 0, 0)
 scale_min = 0.29999998
 scale_max = 0.5
-color = Color(0.23399955, 0.23382667, 0.27672708, 1)
+color = Color(0.3710642, 0.371148, 0.43042374, 1)
 color_ramp = SubResource("GradientTexture1D_1bvp3")
+
+[sub_resource type="Gradient" id="Gradient_qfm1y"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4r5pv"]
+gradient = SubResource("Gradient_qfm1y")
+
+[sub_resource type="Curve" id="Curve_fulsm"]
+_data = [Vector2(0, 0.36842108), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qfm1y"]
+curve = SubResource("Curve_fulsm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8ls1"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -50, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_qfm1y")
+color_ramp = SubResource("GradientTexture1D_4r5pv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(32, 32)
@@ -122,17 +151,34 @@ texture = ExtResource("2_dqkch")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_0xm2m")
 
-[node name="body" type="Polygon2D" parent="." unique_id=1510140783]
+[node name="body" type="Node2D" parent="." unique_id=328181339]
+self_modulate = Color(0, 0.5254902, 0.1882353, 1)
 rotation = 1.5707964
-color = Color(0, 0.17254902, 0, 1)
-polygon = PackedVector2Array(14, 10, 14, -10, 8.051552, -16, -7.906822, -16, -14, -10, -14, 9, -8.168434, 16, 9, 16)
 
-[node name="turret" type="Polygon2D" parent="." unique_id=1567568035]
-color = Color(0, 0.6901961, 0, 1)
-polygon = PackedVector2Array(-7, -6, -10, -3, -10, 5, -7, 8, 4, 8, 6, 4, 13, 4, 13, -3, 6, -3, 4, -6)
+[node name="bodySprite" type="Sprite2D" parent="body" unique_id=123359618]
+modulate = Color(0, 0.5271947, 0.18959653, 1)
+rotation = 3.1415927
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_a8ls1")
+
+[node name="exhaust" type="GPUParticles2D" parent="body" unique_id=911227959]
+position = Vector2(4.7683716e-07, 15)
+amount = 100
+texture = ExtResource("4_qfm1y")
+process_material = SubResource("ParticleProcessMaterial_a8ls1")
+
+[node name="turret" type="Node2D" parent="." unique_id=2054410280]
+self_modulate = Color(0, 0.5254902, 0.1882353, 1)
 script = ExtResource("3_qlg0r")
 primary = ExtResource("4_qlg0r")
 secondary = ExtResource("5_fjrip")
+
+[node name="TurretSprite" type="Sprite2D" parent="turret" unique_id=719296888]
+self_modulate = Color(0.20681101, 0.9999998, 0.42536765, 1)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_oprun")
+offset = Vector2(0, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331816101]
 visible = false
@@ -140,7 +186,7 @@ shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=752665819]
 position = Vector2(-2.3841858e-06, 7.1525574e-06)
-zoom = Vector2(1.2, 1.2)
+zoom = Vector2(2, 2)
 
 [node name="ShakerComponent2D" type="Node2D" parent="Camera2D" unique_id=1806479630]
 script = ExtResource("6_3v2ag")
@@ -158,7 +204,6 @@ texture_scale = 0.5
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1245435519]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1955586768 node_paths=PackedStringArray("base")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,7 +216,6 @@ script = ExtResource("11_f1ej7")
 base = NodePath("../..")
 
 [node name="reloadBar" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=759848657]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

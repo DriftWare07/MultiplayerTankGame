@@ -25,6 +25,11 @@ buses/default_bus_layout="uid://bniubslbbuj73"
 Shaker="*uid://dbunichry1wfi"
 Networking="*uid://dd545p3rqovt0"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg", "res://addons/shaker/plugin.cfg")

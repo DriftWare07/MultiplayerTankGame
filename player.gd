@@ -15,6 +15,8 @@ var immobileReload = false
 
 var spawnPoint = Vector2.ZERO
 
+
+
 signal reloaded
 # Called when the node enters the scene tree for the first time.
 

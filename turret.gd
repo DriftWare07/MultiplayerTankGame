@@ -1,4 +1,4 @@
-extends Polygon2D
+extends Node2D
 
 @onready var base = get_parent() as Tank
 @export var primary : PrimaryWeapon
@@ -40,7 +40,7 @@ func reload():
 
 @rpc("any_peer","call_local","reliable")
 func fire_primary():
-	print(name+" secondary fired")
+	#print(name+" secondary fired")
 	var p = primary.bullet.instantiate() as Bullet
 	p.my_owner = base
 	get_tree().root.add_child(p)
@@ -64,7 +64,7 @@ func fire_primary():
 
 @rpc("any_peer","call_local","reliable")
 func fire_secondary():
-	print(name+" secondary fired")
+	#print(name+" secondary fired")
 	var p = secondary.bullet.instantiate() as Bullet
 	p.my_owner = base
 	get_tree().root.add_child(p)

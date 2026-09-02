@@ -10,7 +10,7 @@ var dead = false
 signal damaged
 signal died
 
-
+var team = ""
 
 func _ready() -> void:
 	hp = max_health
