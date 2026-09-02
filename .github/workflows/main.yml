@@ -27,7 +27,7 @@ jobs:
           find ~ -iname "godot" -type f 2>/dev/null
 
       - name: Ensure export output dirs exist
-          run: mkdir -p builds/windows
+        run: mkdir -p builds/windows
 
       - name: Build
         id: build
