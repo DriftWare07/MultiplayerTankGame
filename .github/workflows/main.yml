@@ -24,7 +24,7 @@ jobs:
         with:
           EXPORT_PRESET_NAME: ${{ matrix.preset }}
           PROJECT_DIR: game                # if your project is in a subfolder
-          GODOT_VER: "4.7.1"                    # auto-detect latest stable 4.x
+          GODOT_VER: "4.7.1-stable"                    # auto-detect latest stable 4.x
           DEBUG_MODE: "false"              # or "true"
           GODOT_PREVIEW_BUILDS: "false"    # set "true" to use preview builds
           EXPORT_DIR: builds
