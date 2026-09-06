@@ -1,2 +1,0 @@
-SecondaryWeapon
-PrimaryWeapon
