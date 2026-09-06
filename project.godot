@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="DungeonGenerator"
+config/name="Treads of War"
 config/description="Enter an interesting project description here!"
 run/main_scene="uid://bna311thkakxq"
 config/features=PackedStringArray("4.7")
