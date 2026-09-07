@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://03utoacgnqmj" path="res://assets/sprites/tankgamefulltileset.png" id="3_7mycd"]
 [ext_resource type="FontFile" uid="uid://xuxmhjc42uij" path="res://assets/Maratype.otf" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://b3ei7f5jxdaus" path="res://assets/sprites/grittyBackGround.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://b7g7t4bsfqkjx" path="res://scripts/showOnPlay.gd" id="4_dg77c"]
 [ext_resource type="Shader" uid="uid://f8dognpbrpf6" path="res://assets/shaders/crt.gdshader" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://cvphpckrxysbf" path="res://assets/sprites/Tree_1.png" id="7_efxa6"]
 [ext_resource type="Texture2D" uid="uid://c123iqdf7i8gp" path="res://assets/sprites/Explosive_barrel.png" id="8_dg77c"]
@@ -242,6 +243,7 @@ tile_set = SubResource("TileSet_7v7s3")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1733307191]
 visible = false
 color = Color(0, 0, 0, 1)
+script = ExtResource("4_dg77c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=480542587]
 environment = SubResource("Environment_7v7s3")
