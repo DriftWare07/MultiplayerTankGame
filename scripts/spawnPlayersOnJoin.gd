@@ -13,6 +13,8 @@ var blueTeamPlayers : Array[Entity]
 signal joined_lobby
 signal created_lobby
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Networking.host_created.connect(on_host_created)

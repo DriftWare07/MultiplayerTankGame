@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 		fire_primary.rpc()
 	
 	if secondaryCooldownTimer < 0.0 and Input.is_action_pressed("SecondaryFire"):
+		
 		fire_secondary.rpc()
 	
 	primaryCooldownTimer -= delta
@@ -65,10 +66,12 @@ func fire_primary():
 @rpc("any_peer","call_local","reliable")
 func fire_secondary():
 	#print(name+" secondary fired")
-	var p = secondary.bullet.instantiate() as Bullet
-	p.my_owner = base
-	get_tree().root.add_child(p)
-	p.global_position = global_position
-	p.global_rotation = global_rotation
-	secondaryCooldownTimer = secondary.fire_delay
-	p.rotation_degrees += randf_range(-secondary.spread,secondary.spread)
+	for i in range(0, secondary.projectile_num):
+		var p = secondary.bullet.instantiate() as Bullet
+		p.my_owner = base
+		get_tree().root.add_child(p)
+		p.global_position = global_position
+		p.global_rotation = global_rotation
+		secondaryCooldownTimer = secondary.fire_delay
+		p.rotation_degrees += randf_range(-secondary.spread,secondary.spread)
+		await get_tree().create_timer(secondary.burst_delay).timeout

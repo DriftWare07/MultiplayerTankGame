@@ -3,6 +3,9 @@ class_name Tank
 
 @export var speed = 50.0
 @export var crewmates = 3
+
+var playerInfo : PlayerInfo
+
 var mash_progress = 0.1
 
 var reloadtimer = 0.0

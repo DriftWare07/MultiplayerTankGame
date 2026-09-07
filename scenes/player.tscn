@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cj71eviiy6h3n" path="res://assets/sprites/circle_03.png" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://k8mnakkvym7t" path="res://assets/sprites/Smoke_particle_1.png" id="4_qfm1y"]
 [ext_resource type="Resource" uid="uid://dp34rxm5i6k5b" path="res://scenes/weapons/StandardShell.tres" id="4_qlg0r"]
-[ext_resource type="Resource" uid="uid://847yudwdk2m1" path="res://scenes/weapons/MachineGun.tres" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cvo6csjrb6c2v" path="res://addons/shaker/src/Vector2/shaker_component2D.gd" id="6_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://eekjcm3b3nrm" path="res://assets/sprites/Tank_turret_rough_sketch_.png" id="6_oprun"]
 [ext_resource type="AudioStream" uid="uid://vxexct0e2plr" path="res://assets/sounds/freesound_community-engine-47745.mp3" id="6_tuyoq"]
+[ext_resource type="Resource" uid="uid://d14bbwuij5lx0" path="res://scenes/weapons/ShotGun.tres" id="7_fulsm"]
 [ext_resource type="Script" uid="uid://b1ae0wipea1vf" path="res://addons/shaker/data/Vector2/BaseShakerType2D.gd" id="7_jej6c"]
 [ext_resource type="Script" uid="uid://dmdwpwc6avwi1" path="res://addons/shaker/data/Vector2/ShakerTypeRandom2D.gd" id="8_3v2ag"]
 [ext_resource type="Script" uid="uid://pdash4cesk1i" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="9_oprun"]
@@ -141,7 +141,9 @@ linear_damp = 5.0
 angular_damp = 10.0
 script = ExtResource("1_qhqgy")
 speed = 1000.0
+crewmates = null
 max_health = 100.0
+hp = null
 
 [node name="leftTrail" type="GPUParticles2D" parent="." unique_id=128702102]
 position = Vector2(0, -7)
@@ -177,7 +179,7 @@ process_material = SubResource("ParticleProcessMaterial_a8ls1")
 self_modulate = Color(0, 0.5254902, 0.1882353, 1)
 script = ExtResource("3_qlg0r")
 primary = ExtResource("4_qlg0r")
-secondary = ExtResource("5_fjrip")
+secondary = ExtResource("7_fulsm")
 
 [node name="TurretSprite" type="Sprite2D" parent="turret" unique_id=719296888]
 self_modulate = Color(0.20681101, 0.9999998, 0.42536765, 1)

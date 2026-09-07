@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SecondaryWeapon" format=3 uid="uid://d14bbwuij5lx0"]
+
+[ext_resource type="PackedScene" uid="uid://ejkw7kn5stjd" path="res://scenes/weapons/MachineGunBullet.tscn" id="1_jmmdc"]
+[ext_resource type="Script" uid="uid://s82jfqq0f80o" path="res://scenes/weapons/SecondaryWeapon.gd" id="1_x2xmt"]
+
+[resource]
+script = ExtResource("1_x2xmt")
+bullet = ExtResource("1_jmmdc")
+projectile_num = 8
+fire_delay = 1.0
+spread = 15.0
+metadata/_custom_type_script = "uid://s82jfqq0f80o"
