@@ -2,6 +2,8 @@ extends Control
 
 @onready var primaryWeaponMenu = $Panel/primaryWeaponSelector
 @onready var secondaryWeaponMenu = $Panel/secondaryWeaponSelector2
+
+var open = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(0, Global.primaryWeapons.size()):

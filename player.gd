@@ -15,6 +15,7 @@ var immobileReload = false
 
 @onready var reloadBar = $CanvasLayer/Control/reloadBar
 @onready var reloadText = $CanvasLayer/Control/reloadBar/reloadText
+@onready var loadOutMenu = $CanvasLayer/LoadoutMenu
 @onready var turret = $turret as Turret
 
 var spawnPoint = Vector2.ZERO
@@ -44,6 +45,13 @@ func _enter_tree() -> void:
 func _process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
+	
+	if Input.is_action_just_pressed("pauseMenu"):
+		loadOutMenu.visible = !loadOutMenu.visible
+	turret.disabled = loadOutMenu.visible
+	if loadOutMenu.visible:
+		return 
+	
 	var dir = Input.get_vector("left", "right","up", "down")
 	if dir:
 		apply_central_force(dir*speed*delta*100.0)

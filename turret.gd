@@ -13,6 +13,7 @@ var secondary : SecondaryWeapon
 var primaryCooldownTimer = 0.0
 var secondaryCooldownTimer = 0.0
 var mag = 0
+var disabled = false
 
 const muzzleFlash = preload("res://scenes/muzzle.tscn")
 
@@ -35,7 +36,7 @@ func loadTheseWeapons(pwid, swid):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !base.is_multiplayer_authority():
+	if !base.is_multiplayer_authority() or disabled:
 		return
 	if primaryCooldownTimer < 0.0 and mag > 0 and Input.is_action_pressed("PrimaryFire"):
 		fire_primary.rpc()

@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://d1sx46cmi83f3" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="10_a8ls1"]
 [ext_resource type="Script" uid="uid://dr15rvgfvpujm" path="res://scenes/PlayerUI.gd" id="11_f1ej7"]
 [ext_resource type="AudioStream" uid="uid://ctwcue6bon6b7" path="res://assets/sounds/melbeebelbee-gun-full-reload-384507.mp3" id="13_jej6c"]
+[ext_resource type="Script" uid="uid://clfixm8mxduao" path="res://scripts/loadoutMenu.gd" id="15_qfm1y"]
 [ext_resource type="Shader" uid="uid://myemwd2tg4io" path="res://assets/shaders/frostbite.gdshader" id="16_fulsm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
@@ -272,6 +273,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LoadoutMenu" type="Control" parent="CanvasLayer" unique_id=25961668]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_qfm1y")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/LoadoutMenu" unique_id=1124283949]
+layout_mode = 0
+anchor_right = 0.4125
+anchor_bottom = 0.9962963
+metadata/_edit_use_anchors_ = true
+
+[node name="primary" type="Label" parent="CanvasLayer/LoadoutMenu/Panel" unique_id=2012413950]
+layout_mode = 0
+anchor_left = 0.059343435
+anchor_top = 0.10966543
+anchor_right = 0.9431818
+anchor_bottom = 0.13847584
+text = "Primary Weapon"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="primaryWeaponSelector" type="OptionButton" parent="CanvasLayer/LoadoutMenu/Panel" unique_id=1655736640]
+layout_mode = 0
+anchor_left = 0.060606062
+anchor_top = 0.15520446
+anchor_right = 0.9444444
+anchor_bottom = 0.20539033
+metadata/_edit_use_anchors_ = true
+
+[node name="secondary" type="Label" parent="CanvasLayer/LoadoutMenu/Panel" unique_id=209662930]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059343435
+anchor_top = 0.21747212
+anchor_right = 0.9431818
+anchor_bottom = 0.24628253
+text = "Secondary Weapon"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="secondaryWeaponSelector2" type="OptionButton" parent="CanvasLayer/LoadoutMenu/Panel" unique_id=869189152]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060606062
+anchor_top = 0.25371748
+anchor_right = 0.9444444
+anchor_bottom = 0.30390334
+metadata/_edit_use_anchors_ = true
 
 [node name="engine" type="AudioStreamPlayer2D" parent="." unique_id=609759511]
 stream = ExtResource("6_tuyoq")

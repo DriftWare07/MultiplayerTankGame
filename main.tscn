@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://c413ocppmx8qs" path="res://assets/sprites/Objects/Concrete barricade end.png" id="23_lswn8"]
 [ext_resource type="Texture2D" uid="uid://2em1wujhpwb6" path="res://assets/sprites/Objects/Concrete barricade mid.png" id="24_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://bpga3nhyh587b" path="res://assets/sprites/Objects/Ammo crate.png" id="25_xuqvo"]
-[ext_resource type="Script" uid="uid://clfixm8mxduao" path="res://scripts/loadoutMenu.gd" id="27_a6jrf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ig7tw"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -309,61 +308,6 @@ position = Vector2(51, 318)
 
 [node name="redSpawn" type="Node2D" parent="." unique_id=1513235546]
 position = Vector2(1099, 318)
-
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1382394011]
-
-[node name="Control" type="Control" parent="PauseMenu" unique_id=1019219371]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("27_a6jrf")
-
-[node name="Panel" type="Panel" parent="PauseMenu/Control" unique_id=276001088]
-layout_mode = 0
-anchor_right = 0.4125
-anchor_bottom = 0.9962963
-metadata/_edit_use_anchors_ = true
-
-[node name="primary" type="Label" parent="PauseMenu/Control/Panel" unique_id=450265424]
-layout_mode = 0
-anchor_left = 0.059343435
-anchor_top = 0.10966543
-anchor_right = 0.9431818
-anchor_bottom = 0.13847584
-text = "Primary Weapon"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="primaryWeaponSelector" type="OptionButton" parent="PauseMenu/Control/Panel" unique_id=1832763842]
-layout_mode = 0
-anchor_left = 0.060606062
-anchor_top = 0.15520446
-anchor_right = 0.9444444
-anchor_bottom = 0.20539033
-metadata/_edit_use_anchors_ = true
-
-[node name="secondary" type="Label" parent="PauseMenu/Control/Panel" unique_id=1196504230]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.059343435
-anchor_top = 0.21747212
-anchor_right = 0.9431818
-anchor_bottom = 0.24628253
-text = "Secondary Weapon"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="secondaryWeaponSelector2" type="OptionButton" parent="PauseMenu/Control/Panel" unique_id=1485136407]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.060606062
-anchor_top = 0.25371748
-anchor_right = 0.9444444
-anchor_bottom = 0.30390334
-metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=394402304]
 
