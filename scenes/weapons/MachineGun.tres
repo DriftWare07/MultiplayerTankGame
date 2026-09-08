@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_rw5t8")
-name = "Machine Gun"
+weapon_name = "Machine Gun"
 bullet = ExtResource("1_m7oqt")
 fire_delay = 0.1
 metadata/_custom_type_script = "uid://s82jfqq0f80o"

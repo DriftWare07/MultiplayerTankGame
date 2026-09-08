@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://bniubslbbuj73"
 
 Shaker="*uid://dbunichry1wfi"
 Networking="*uid://dd545p3rqovt0"
+Global="*uid://bkowyjdmq1l2e"
 
 [display]
 

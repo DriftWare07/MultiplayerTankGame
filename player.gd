@@ -4,6 +4,7 @@ class_name Tank
 @export var speed = 50.0
 @export var crewmates = 3
 
+
 var playerInfo : PlayerInfo
 
 var mash_progress = 0.1
@@ -14,7 +15,7 @@ var immobileReload = false
 
 @onready var reloadBar = $CanvasLayer/Control/reloadBar
 @onready var reloadText = $CanvasLayer/Control/reloadBar/reloadText
-@onready var turret = $turret
+@onready var turret = $turret as Turret
 
 var spawnPoint = Vector2.ZERO
 
@@ -36,6 +37,8 @@ func _enter_tree() -> void:
 		$CanvasLayer.hide()
 		$Camera2D.enabled = false
 		$PointLight2D.hide()
+	else:
+		Global.localPlayer = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

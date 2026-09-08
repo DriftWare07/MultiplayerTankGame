@@ -1,8 +1,14 @@
 extends Node2D
+class_name Turret
 
 @onready var base = get_parent() as Tank
-@export var primary : PrimaryWeapon
-@export var secondary : SecondaryWeapon
+
+@export var primaryID = 0
+@export var secondaryID = 0
+
+
+var primary : PrimaryWeapon
+var secondary : SecondaryWeapon
 
 var primaryCooldownTimer = 0.0
 var secondaryCooldownTimer = 0.0
@@ -12,8 +18,20 @@ const muzzleFlash = preload("res://scenes/muzzle.tscn")
 
 signal fired
 func _ready() -> void:
+	loadWeapons()
 	reload()
 
+
+func loadWeapons():
+	primary = Global.primaryWeapons[primaryID]
+	secondary = Global.secondaryWeapons[secondaryID]
+	
+
+@rpc("any_peer","call_local","reliable")
+func loadTheseWeapons(pwid, swid):
+	if pwid != -1: primaryID = pwid
+	if swid != -1: secondaryID = swid
+	loadWeapons()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

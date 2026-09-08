@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c413ocppmx8qs" path="res://assets/sprites/Objects/Concrete barricade end.png" id="23_lswn8"]
 [ext_resource type="Texture2D" uid="uid://2em1wujhpwb6" path="res://assets/sprites/Objects/Concrete barricade mid.png" id="24_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://bpga3nhyh587b" path="res://assets/sprites/Objects/Ammo crate.png" id="25_xuqvo"]
+[ext_resource type="Script" uid="uid://clfixm8mxduao" path="res://scripts/loadoutMenu.gd" id="27_a6jrf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ig7tw"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -309,6 +310,61 @@ position = Vector2(51, 318)
 [node name="redSpawn" type="Node2D" parent="." unique_id=1513235546]
 position = Vector2(1099, 318)
 
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1382394011]
+
+[node name="Control" type="Control" parent="PauseMenu" unique_id=1019219371]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_a6jrf")
+
+[node name="Panel" type="Panel" parent="PauseMenu/Control" unique_id=276001088]
+layout_mode = 0
+anchor_right = 0.4125
+anchor_bottom = 0.9962963
+metadata/_edit_use_anchors_ = true
+
+[node name="primary" type="Label" parent="PauseMenu/Control/Panel" unique_id=450265424]
+layout_mode = 0
+anchor_left = 0.059343435
+anchor_top = 0.10966543
+anchor_right = 0.9431818
+anchor_bottom = 0.13847584
+text = "Primary Weapon"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="primaryWeaponSelector" type="OptionButton" parent="PauseMenu/Control/Panel" unique_id=1832763842]
+layout_mode = 0
+anchor_left = 0.060606062
+anchor_top = 0.15520446
+anchor_right = 0.9444444
+anchor_bottom = 0.20539033
+metadata/_edit_use_anchors_ = true
+
+[node name="secondary" type="Label" parent="PauseMenu/Control/Panel" unique_id=1196504230]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.059343435
+anchor_top = 0.21747212
+anchor_right = 0.9431818
+anchor_bottom = 0.24628253
+text = "Secondary Weapon"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="secondaryWeaponSelector2" type="OptionButton" parent="PauseMenu/Control/Panel" unique_id=1485136407]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060606062
+anchor_top = 0.25371748
+anchor_right = 0.9444444
+anchor_bottom = 0.30390334
+metadata/_edit_use_anchors_ = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=394402304]
 
 [node name="MainMenu" type="Control" parent="CanvasLayer" unique_id=1423172621]
@@ -382,208 +438,210 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Tree1" type="Sprite2D" parent="." unique_id=1108925513]
+[node name="decor" type="Node" parent="." unique_id=1993972274]
+
+[node name="Tree1" type="Sprite2D" parent="decor" unique_id=1108925513]
 position = Vector2(471, 1557)
 texture = ExtResource("7_efxa6")
 
-[node name="ExplosiveBarrel" type="Sprite2D" parent="." unique_id=2011704002]
+[node name="ExplosiveBarrel" type="Sprite2D" parent="decor" unique_id=2011704002]
 position = Vector2(227, 1898)
 texture = ExtResource("8_dg77c")
 
-[node name="ConcreteBarricadeMid" type="Sprite2D" parent="." unique_id=1037988758]
+[node name="ConcreteBarricadeMid" type="Sprite2D" parent="decor" unique_id=1037988758]
 position = Vector2(597, 1341)
 texture = ExtResource("9_ycdy4")
 
-[node name="ConcreteBarricadeMid2" type="Sprite2D" parent="." unique_id=1787176282]
+[node name="ConcreteBarricadeMid2" type="Sprite2D" parent="decor" unique_id=1787176282]
 position = Vector2(661, 1341)
 texture = ExtResource("9_ycdy4")
 
-[node name="ConcreteBarricadeEnd" type="Sprite2D" parent="." unique_id=1374985158]
+[node name="ConcreteBarricadeEnd" type="Sprite2D" parent="decor" unique_id=1374985158]
 position = Vector2(725, 1341)
 texture = ExtResource("10_w48qg")
 
-[node name="ConcreteBarricadeBegin" type="Sprite2D" parent="." unique_id=638984762]
+[node name="ConcreteBarricadeBegin" type="Sprite2D" parent="decor" unique_id=638984762]
 position = Vector2(533, 1341)
 texture = ExtResource("11_vivmo")
 
-[node name="TankHullRoughSketch" type="Sprite2D" parent="." unique_id=951388385]
+[node name="TankHullRoughSketch" type="Sprite2D" parent="decor" unique_id=951388385]
 position = Vector2(3687, 872)
 texture = ExtResource("12_ycdy4")
 
-[node name="TankTurretRoughSketch" type="Sprite2D" parent="." unique_id=1070148519]
+[node name="TankTurretRoughSketch" type="Sprite2D" parent="decor" unique_id=1070148519]
 position = Vector2(3685, 902)
 scale = Vector2(1.8749995, 1.6133716)
 texture = ExtResource("13_w48qg")
 
-[node name="OakTree" type="Sprite2D" parent="." unique_id=2045641722]
+[node name="OakTree" type="Sprite2D" parent="decor" unique_id=2045641722]
 z_index = 2
 position = Vector2(3278, 822)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="OakTree" unique_id=58802238]
+[node name="OakTree" type="Sprite2D" parent="decor/OakTree" unique_id=58802238]
 position = Vector2(-187, -717)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree2" type="Sprite2D" parent="OakTree" unique_id=1577974272]
+[node name="OakTree2" type="Sprite2D" parent="decor/OakTree" unique_id=1577974272]
 position = Vector2(-773, -774)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="OakTree/OakTree2" unique_id=1312542792]
+[node name="OakTree" type="Sprite2D" parent="decor/OakTree/OakTree2" unique_id=1312542792]
 position = Vector2(1464, 270)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree3" type="Sprite2D" parent="OakTree" unique_id=695238143]
-position = Vector2(-364, 22)
+[node name="OakTree3" type="Sprite2D" parent="decor" unique_id=695238143]
+position = Vector2(2914, 844)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="OakTree/OakTree3" unique_id=233946209]
-position = Vector2(632, -896)
+[node name="OakTree4" type="Sprite2D" parent="decor" unique_id=1992962435]
+position = Vector2(2889, 1081)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree2" type="Sprite2D" parent="OakTree/OakTree3" unique_id=1992962435]
-position = Vector2(-25, 237)
-texture = ExtResource("20_82xsv")
-
-[node name="OakTree" type="Sprite2D" parent="OakTree/OakTree3/OakTree2" unique_id=142368491]
+[node name="OakTree" type="Sprite2D" parent="decor/OakTree4" unique_id=142368491]
 position = Vector2(1365, -832)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree2" type="Sprite2D" parent="OakTree/OakTree3/OakTree2" unique_id=1493534680]
+[node name="OakTree2" type="Sprite2D" parent="decor/OakTree4" unique_id=1493534680]
 position = Vector2(-261, -169)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="OakTree/OakTree3/OakTree2/OakTree2" unique_id=1754739391]
+[node name="OakTree" type="Sprite2D" parent="decor/OakTree4/OakTree2" unique_id=1754739391]
 position = Vector2(1611, -828)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree2" type="Sprite2D" parent="OakTree/OakTree3/OakTree2/OakTree2" unique_id=1755162956]
+[node name="OakTree2" type="Sprite2D" parent="decor/OakTree4/OakTree2" unique_id=1755162956]
 position = Vector2(77, 448)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="OakTree/OakTree3/OakTree2/OakTree2/OakTree2" unique_id=1160436917]
+[node name="OakTree" type="Sprite2D" parent="decor/OakTree4/OakTree2/OakTree2" unique_id=1160436917]
 position = Vector2(503, -1039)
 texture = ExtResource("20_82xsv")
 
-[node name="ExplosiveBarrel2" type="Sprite2D" parent="." unique_id=259543768]
+[node name="OakTree2" type="Sprite2D" parent="decor" unique_id=233946209]
+position = Vector2(3546, -52)
+texture = ExtResource("20_82xsv")
+
+[node name="ExplosiveBarrel2" type="Sprite2D" parent="decor" unique_id=259543768]
 position = Vector2(3014, 1243)
 texture = ExtResource("21_getpj")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2" unique_id=1423661444]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2" unique_id=1423661444]
 position = Vector2(3685, 876)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/OakTree" unique_id=1240520540]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/OakTree" unique_id=1240520540]
 position = Vector2(3689, 885)
 texture = ExtResource("20_82xsv")
 
-[node name="ExplosiveBarrel2" type="Sprite2D" parent="ExplosiveBarrel2" unique_id=1192260986]
+[node name="ExplosiveBarrel2" type="Sprite2D" parent="decor/ExplosiveBarrel2" unique_id=1192260986]
 position = Vector2(1340, -625)
 texture = ExtResource("21_getpj")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel2" unique_id=1684540176]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel2" unique_id=1684540176]
 position = Vector2(3685, 876)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel2/OakTree" unique_id=1225722022]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel2/OakTree" unique_id=1225722022]
 position = Vector2(3689, 885)
 texture = ExtResource("20_82xsv")
 
-[node name="ExplosiveBarrel3" type="Sprite2D" parent="ExplosiveBarrel2" unique_id=778581898]
+[node name="ExplosiveBarrel3" type="Sprite2D" parent="decor/ExplosiveBarrel2" unique_id=778581898]
 position = Vector2(577, -369)
 texture = ExtResource("21_getpj")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel3" unique_id=1733006659]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel3" unique_id=1733006659]
 position = Vector2(3685, 876)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel3/OakTree" unique_id=391032430]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel3/OakTree" unique_id=391032430]
 position = Vector2(3689, 885)
 texture = ExtResource("20_82xsv")
 
-[node name="ExplosiveBarrel2" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel3" unique_id=1663125494]
+[node name="ExplosiveBarrel2" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel3" unique_id=1663125494]
 position = Vector2(455, 458)
 texture = ExtResource("21_getpj")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel3/ExplosiveBarrel2" unique_id=2116980276]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel3/ExplosiveBarrel2" unique_id=2116980276]
 position = Vector2(3685, 876)
 texture = ExtResource("20_82xsv")
 
-[node name="OakTree" type="Sprite2D" parent="ExplosiveBarrel2/ExplosiveBarrel3/ExplosiveBarrel2/OakTree" unique_id=669013896]
+[node name="OakTree" type="Sprite2D" parent="decor/ExplosiveBarrel2/ExplosiveBarrel3/ExplosiveBarrel2/OakTree" unique_id=669013896]
 position = Vector2(3689, 885)
 texture = ExtResource("20_82xsv")
 
-[node name="ConcreteBarricadeBegin2" type="Sprite2D" parent="." unique_id=422927840]
+[node name="ConcreteBarricadeBegin2" type="Sprite2D" parent="decor" unique_id=422927840]
 position = Vector2(3046, 1445)
 texture = ExtResource("22_0odxb")
 
-[node name="ConcreteBarricadeEnd2" type="Sprite2D" parent="." unique_id=377216985]
+[node name="ConcreteBarricadeEnd2" type="Sprite2D" parent="decor" unique_id=377216985]
 position = Vector2(3108, 1443)
 texture = ExtResource("23_lswn8")
 
-[node name="ConcreteBarricadeBegin3" type="Sprite2D" parent="." unique_id=203206058]
+[node name="ConcreteBarricadeBegin3" type="Sprite2D" parent="decor" unique_id=203206058]
 position = Vector2(3297, 1440)
 texture = ExtResource("22_0odxb")
 
-[node name="ConcreteBarricadeEnd3" type="Sprite2D" parent="." unique_id=1158649261]
+[node name="ConcreteBarricadeEnd3" type="Sprite2D" parent="decor" unique_id=1158649261]
 position = Vector2(3552, 1438)
 texture = ExtResource("23_lswn8")
 
-[node name="ConcreteBarricadeMid3" type="Sprite2D" parent="." unique_id=589991041]
+[node name="ConcreteBarricadeMid3" type="Sprite2D" parent="decor" unique_id=589991041]
 position = Vector2(3360, 1439)
 texture = ExtResource("24_a6jrf")
 
-[node name="ConcreteBarricadeMid4" type="Sprite2D" parent="." unique_id=916050542]
+[node name="ConcreteBarricadeMid4" type="Sprite2D" parent="decor" unique_id=916050542]
 position = Vector2(3424, 1439)
 texture = ExtResource("24_a6jrf")
 
-[node name="ConcreteBarricadeMid5" type="Sprite2D" parent="." unique_id=584918174]
+[node name="ConcreteBarricadeMid5" type="Sprite2D" parent="decor" unique_id=584918174]
 position = Vector2(3488, 1439)
 texture = ExtResource("24_a6jrf")
 
-[node name="ConcreteBarricadeBegin4" type="Sprite2D" parent="." unique_id=1952255901]
+[node name="ConcreteBarricadeBegin4" type="Sprite2D" parent="decor" unique_id=1952255901]
 position = Vector2(3616, 985)
 texture = ExtResource("22_0odxb")
 
-[node name="ConcreteBarricadeEnd4" type="Sprite2D" parent="." unique_id=2258681]
+[node name="ConcreteBarricadeEnd4" type="Sprite2D" parent="decor" unique_id=2258681]
 position = Vector2(3807, 983)
 texture = ExtResource("23_lswn8")
 
-[node name="ConcreteBarricadeMid6" type="Sprite2D" parent="." unique_id=612196035]
+[node name="ConcreteBarricadeMid6" type="Sprite2D" parent="decor" unique_id=612196035]
 position = Vector2(3679, 984)
 texture = ExtResource("24_a6jrf")
 
-[node name="ConcreteBarricadeMid7" type="Sprite2D" parent="." unique_id=706484551]
+[node name="ConcreteBarricadeMid7" type="Sprite2D" parent="decor" unique_id=706484551]
 position = Vector2(3743, 984)
 texture = ExtResource("24_a6jrf")
 
-[node name="AmmoCrate" type="Sprite2D" parent="." unique_id=1402604184]
+[node name="AmmoCrate" type="Sprite2D" parent="decor" unique_id=1402604184]
 position = Vector2(3790, 906)
 texture = ExtResource("25_xuqvo")
 
-[node name="AmmoCrate2" type="Sprite2D" parent="." unique_id=1240579204]
+[node name="AmmoCrate2" type="Sprite2D" parent="decor" unique_id=1240579204]
 position = Vector2(3307, 1393)
 texture = ExtResource("25_xuqvo")
 
-[node name="AmmoCrate3" type="Sprite2D" parent="." unique_id=1738780639]
+[node name="AmmoCrate3" type="Sprite2D" parent="decor" unique_id=1738780639]
 position = Vector2(3435, 1390)
 texture = ExtResource("25_xuqvo")
 
-[node name="AmmoCrate4" type="Sprite2D" parent="." unique_id=273415984]
+[node name="AmmoCrate4" type="Sprite2D" parent="decor" unique_id=273415984]
 position = Vector2(2812, 158)
 texture = ExtResource("25_xuqvo")
 
-[node name="ExplosiveBarrel3" type="Sprite2D" parent="." unique_id=986091871]
+[node name="ExplosiveBarrel3" type="Sprite2D" parent="decor" unique_id=986091871]
 position = Vector2(2814, 69)
 texture = ExtResource("21_getpj")
 
-[node name="ExplosiveBarrel4" type="Sprite2D" parent="." unique_id=1908799935]
+[node name="ExplosiveBarrel4" type="Sprite2D" parent="decor" unique_id=1908799935]
 position = Vector2(2708, 169)
 texture = ExtResource("21_getpj")
 
-[node name="ExplosiveBarrel5" type="Sprite2D" parent="." unique_id=1226827941]
+[node name="ExplosiveBarrel5" type="Sprite2D" parent="decor" unique_id=1226827941]
 position = Vector2(2930, 245)
 texture = ExtResource("21_getpj")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/options/hostButton" to="." method="host_new_lobby"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/options/hostButton" to="CanvasLayer/MainMenu" method="hide"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/options/hostButton" to="CanvasLayer" method="hide"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/options/quitButton" to="." method="quit_game"]

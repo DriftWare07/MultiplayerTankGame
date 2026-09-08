@@ -2,7 +2,7 @@ extends Resource
 class_name SecondaryWeapon
 
 
-@export var name = "Weapon"
+@export var weapon_name = "Weapon"
 @export var bullet : PackedScene
 
 @export var projectile_num = 1

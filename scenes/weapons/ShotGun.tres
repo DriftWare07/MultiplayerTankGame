@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_x2xmt")
+weapon_name = "Shotgun"
 bullet = ExtResource("1_jmmdc")
 projectile_num = 8
 fire_delay = 1.0

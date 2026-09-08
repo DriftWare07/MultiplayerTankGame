@@ -26,13 +26,17 @@ func on_host_created():
 	created_lobby.emit()
 
 func spawn_player(peer_id: int):
+	print("spawned a player")
 	var new_player = PLAYER.instantiate()
 	new_player.name = str(peer_id)
+	
 	add_child(new_player)
 	#new_player.position = spawn.position
 	initialize_player(new_player)
+	
 
 func initialize_player(player: Entity):
+	
 	
 	
 	if blueTeamPlayers.size() <= redTeamPlayers.size():

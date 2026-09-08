@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_wn4gx")
-name = "HE Shell"
+weapon_name = "HE Shell"
 bullet = ExtResource("1_cvmd1")
 reload_time = 2.5
 metadata/_custom_type_script = "uid://bh04oswj74bfx"
