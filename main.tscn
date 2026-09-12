@@ -312,7 +312,7 @@ environment = SubResource("Environment_7v7s3")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1566085232]
 _spawnable_scenes = PackedStringArray("uid://d0hpvjngp1gys")
-spawn_path = NodePath("../blueSpawn")
+spawn_path = NodePath("..")
 
 [node name="blueSpawn" type="Node2D" parent="." unique_id=1293769095]
 position = Vector2(19872, 149)
